@@ -1,35 +1,31 @@
-//importamos de la libreria react un hook "useState"
-import { useState } from 'react';
 //importamos la matriz realizada
 import { crearMatrizInicial } from './matriz';
-//creamos un estado para los jugadores.
-const [jugadores, setJugadores] = useState([
 
-  //creamos un objeto llamado "Jugador 1" con sus respectiva matriz y propiedades
+//función que crea los dos jugadores, cada uno con su respectiva matriz y propiedades.
+//Es una función para que "Jugar de nuevo" pueda crear matrices limpias.
+export const crearJugadores = () => [
+
+  //objeto llamado "Jugador 1" con su respectiva matriz y propiedades
   {
     id: 1,
     nombre: "Jugador 1",
     matriz: crearMatrizInicial(),
     barcos: [
-      { id: "barco-1", tamaño: 5, casillas: [] },
-      { id: "barco-2", tamaño: 4, casillas: [] },
-      { id: "barco-3", tamaño: 3, casillas: [] }
+      { id: "barco-1", tamaño: 5, casillas: [], direccion:"Horizontal"},
+      { id: "barco-2", tamaño: 4, casillas: [], direccion:"Horizontal"},
+      { id: "barco-3", tamaño: 3, casillas: [] ,direccion: "Horizontal"}
     ]
-  },  
+  },
+
+  //objeto llamado "Jugador 2" con su respectiva matriz y propiedades
   {
-
- //creamos un objeto llamado "Jugador 2" con sus respectiva matriz y propiedades
-
     id: 2,
     nombre: "Jugador 2",
-    matriz: crearMatrizInicial(), 
+    matriz: crearMatrizInicial(),
     barcos: [
-      { id: "barco-1", tamaño: 5, casillas: [] },
-      { id: "barco-2", tamaño: 4, casillas: [] },
-      { id: "barco-3", tamaño: 3, casillas: [] }
+      { id: "barco-1", tamaño: 5, casillas: [] , direccion:"Horizontal"},
+      { id: "barco-2", tamaño: 4, casillas: [] , direccion:"Horizontal"},
+      { id: "barco-3", tamaño: 3, casillas: [] , direccion:"Horizontal"}
     ]
   }
-]);
-
-//Un estado para ir cambiando el turno del jugador
-const [turnoJugador, setTurnoJugador] = useState(1);
+];
