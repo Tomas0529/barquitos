@@ -11,13 +11,13 @@ export const crearMatrizInicial = () => {
     for (let columna = 0; columna < TAMANO_GRILLA; columna++) {
 
       filaActual.push({
-        id: `${LETRAS[fila]}${columna + 1}`, // Coordenada visible (ej. A1, A2... F6)
-        fila: fila,                          // Índice de la fila (0 a 5)
-        columna: columna,                    // Índice de la columna (0 a 5)
-        tieneBarco: false,                   // Booleano para saber si está ocupado por un navío
-        idBarco: null,                       // Identificador del navío
-        impactado: false,                    // Indica si se disparó y se acertó
-        fallido: false                       // Indica si se disparó y falló (se marca con 'X')
+        id: `${LETRAS[fila]}${columna + 1}`, 
+        fila: fila,                          
+        columna: columna,              
+        tieneBarco: false,                   
+        idBarco: null,                      
+        impactado: false,                    
+        fallido: false                      
       });
     }
     matriz.push(filaActual);
