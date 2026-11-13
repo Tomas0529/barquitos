@@ -1,6 +1,6 @@
 import { crearMatrizInicial, LETRAS } from './matriz';
 
-const manejarClicColocarBarco = (filaInicio, colInicio, barcoActual) => {
+export const manejarClicColocarBarco = (filaInicio, colInicio, barcoActual) => {
     const tamaño = barcoActual.tamaño;
     const direccion = barcoActual.direccion;
   
@@ -25,4 +25,5 @@ const manejarClicColocarBarco = (filaInicio, colInicio, barcoActual) => {
         columna 
       });
     }
+    return nuevasCasillasCoordenadas;
 };
