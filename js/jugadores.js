@@ -6,7 +6,7 @@ export const crearJugadores = () => [
     id: 1,
     nombre: "Jugador 1",
     matriz: crearMatrizInicial(),
-    faseActual: "colocando", // Puede ser "colocando" o "listo"
+    faseActual: "colocando",
     barcos: [
       { id: "barco-1", tamaño: 5, casillas: [], direccion: "Horizontal" },
       { id: "barco-2", tamaño: 4, casillas: [], direccion: "Horizontal" },

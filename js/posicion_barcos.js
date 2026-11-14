@@ -16,7 +16,12 @@ export const manejarClicColocarBarco = (filaInicio, colInicio, barcoActual) => {
         fila = filaInicio + i;
       }
 
-      // Aquí unimos los números con tus letras para que coincida con tu matriz
+      // ¡Aquí aplicamos tu validación de límites!
+      // Si la fila o la columna superan el 5 (es decir, son mayores a 5 o suman más de lo permitido)
+      if (fila > 5 || columna > 5) {
+        return { error: "El barco se sale de los límites del tablero (6x6)" };
+      }
+
       const idCelda = `${LETRAS[fila]}${columna + 1}`;
 
       nuevasCasillasCoordenadas.push({ 
@@ -25,5 +30,6 @@ export const manejarClicColocarBarco = (filaInicio, colInicio, barcoActual) => {
         columna 
       });
     }
+
     return nuevasCasillasCoordenadas;
 };
