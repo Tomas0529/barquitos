@@ -9,6 +9,7 @@ const TableroJuego = () => {
   const [direccionActual, setDireccionActual] = useState("Horizontal");
   const [estado, setEstadoJugador] = useState("colocando");
   const [tiempoRestante, setTiempoRestante] = useState(30);
+  const [mensajeTurno, setMensajeTurno] = useState("");
 
   useEffect(() => {
     if (estado !== "batalla") {
@@ -18,8 +19,8 @@ const TableroJuego = () => {
     setTiempoRestante(30);
 
     const intervalo = setInterval(() => {
-      setTiempoRestante((prevTiempo) => {
-        if (prevTiempo <= 1) {
+      setTiempoRestante((Tiempo) => {
+        if (Tiempo <= 1) {
           if (turnoJugador === 1) {
             setTurnoJugador(2);
           } else {
@@ -27,7 +28,7 @@ const TableroJuego = () => {
           }
           return 30;
         }
-        return prevTiempo - 1;
+        return Tiempo - 1;
       });
     }, 1000);
 
@@ -114,6 +115,51 @@ const TableroJuego = () => {
       alert("¡Ya disparaste a esta casilla!");
       return;
     }
+
+    const nuevosJugadores = [...jugadores];
+    const clonOponente = { ...nuevosJugadores[indiceOponente] };
+    
+    const nuevaMatrizOponente = clonOponente.matriz.map(f => 
+      f.map(c => ({ ...c }))
+    );
+
+    const celdaClonada = nuevaMatrizOponente[fila][columna];
+
+    let fueImpacto = false;
+
+    if (celdaClonada.tieneBarco) {
+      celdaClonada.impactado = true;
+      celdaClonada.icono = "💥";
+      fueImpacto = true;
+      setMensajeTurno(`¡Has impactado! 🎯 (Jugador ${indiceOponente + 1}: ¡Fuiste impactado!)`);
+    } else {
+      celdaClonada.fallido = true;
+      celdaClonada.icono = "❌";
+      setMensajeTurno(`¡Agua! 🌊 No hay barco en esta casilla.`);
+    }
+
+    clonOponente.matriz = nuevaMatrizOponente;
+    nuevosJugadores[indiceOponente] = clonOponente;
+
+    let juegoTerminado = false;
+
+    if (fueImpacto) {
+      setMensajeTurno(`🏆 ¡Jugador ${turnoJugador} GANA! Hundiste un navío. (Jugador ${indiceOponente + 1}: Has perdido 💀)`);
+      setEstado("finDeJuego");
+      juegoTerminado = true;
+    }
+
+    if (!juegoTerminado) {
+      setTimeout(() => {
+        setMensajeTurno("");
+      }, 5000);
+
+      if (!fueImpacto) {
+        setTurnoJugador(turnoJugador === 1 ? 2 : 1);
+      }
+    }
+
+    setJugadores(nuevosJugadores);
   };
 
   return (
