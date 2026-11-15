@@ -18,9 +18,9 @@ export const crearJugadores = () => [
     // barco horizontal o vertical
 
     barcos: [
-      { id: "barco-1", tamaño: 5, casillas: [], direccion: "Horizontal" },
-      { id: "barco-2", tamaño: 4, casillas: [], direccion: "Horizontal" },
-      { id: "barco-3", tamaño: 3, casillas: [], direccion: "Horizontal" }
+      { id: "barco-1", tamaño: 5, casillas: [],colocado:false, direccion: "Horizontal" },
+      { id: "barco-2", tamaño: 4, casillas: [],colocado:false,  direccion: "Horizontal" },
+      { id: "barco-3", tamaño: 3, casillas: [],colocado:false, direccion: "Horizontal" }
     ]
   },
   {
@@ -29,9 +29,9 @@ export const crearJugadores = () => [
     matriz: crearMatrizInicial(),
     faseActual: "colocando",
     barcos: [
-      { id: "barco-1", tamaño: 5, casillas: [], direccion: "Horizontal" },
-      { id: "barco-2", tamaño: 4, casillas: [], direccion: "Horizontal" },
-      { id: "barco-3", tamaño: 3, casillas: [], direccion: "Horizontal" }
+      { id: "barco-1", tamaño: 5, casillas: [], colocado:false ,direccion: "Horizontal" },
+      { id: "barco-2", tamaño: 4, casillas: [], colocado:false, direccion: "Horizontal" },
+      { id: "barco-3", tamaño: 3, casillas: [], colocado:false, direccion: "Horizontal" }
     ]
   }
 ];

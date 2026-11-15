@@ -1,6 +1,6 @@
-import { crearMatrizInicial, LETRAS } from './matriz';
+import { LETRAS } from './matriz';
 
-export const manejarClicColocarBarco = (filaInicio, colInicio, barcoActual) => {
+export const manejarClicColocarBarco = (filaInicio, colInicio, barcoActual, matrizJugador) => {
     const tamaño = barcoActual.tamaño;
     const direccion = barcoActual.direccion;
   
@@ -16,10 +16,12 @@ export const manejarClicColocarBarco = (filaInicio, colInicio, barcoActual) => {
         fila = filaInicio + i;
       }
 
-      // ¡Aquí aplicamos tu validación de límites!
-      // Si la fila o la columna superan el 5 (es decir, son mayores a 5 o suman más de lo permitido)
       if (fila > 5 || columna > 5) {
-        return { error: "El barco se sale de los límites del tablero (6x6)" };
+        return { error: "El barco se sale de los límites del tablero" };
+      }
+
+      if (matrizJugador[fila][columna].tieneBarco) {
+        return { error: "¡Ya hay un barco colocado en esta casilla!" };
       }
 
       const idCelda = `${LETRAS[fila]}${columna + 1}`;
