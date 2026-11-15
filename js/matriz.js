@@ -61,8 +61,3 @@ export const crearMatrizInicial = () => {
 
   return matriz;
 };
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 58532b9 (Se completo el juego)
