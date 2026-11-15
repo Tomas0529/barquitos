@@ -8,6 +8,8 @@ export const LETRAS = ['A', 'B', 'C', 'D', 'E', 'F'];
 // en este caso 6x6
 
 export const TAMANO_GRILLA = 6;
+export const FILAS = LETRAS;
+export const COLUMNAS = ['1', '2', '3', '4', '5', '6'];
 
 
 // se crea la funcion crearMatrizInicial para que cada jugador
@@ -59,5 +61,8 @@ export const crearMatrizInicial = () => {
 
   return matriz;
 };
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 58532b9 (Se completo el juego)
